@@ -1,0 +1,1011 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           Solve-hs
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/Solve-hs#readme>
+homepage:       https://github.com/githubuser/Solve-hs#readme
+bug-reports:    https://github.com/githubuser/Solve-hs/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2023 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/Solve-hs
+
+library
+  exposed-modules:
+      BalancedSet
+      HashTable
+      M1Lecture1
+      M1Lecture10
+      M1Lecture11
+      M1Lecture2
+      M1Lecture3
+      M1Lecture4
+      M1Lecture5
+      M1Lecture6
+      M1Lecture7
+      M1Lecture8
+      M1Lecture9
+      M2Lecture1
+      M2Lecture10
+      M2Lecture3
+      M2Lecture4
+      M2Lecture5
+      M2Lecture6
+      M2Lecture7
+      M2Lecture8
+      M2Lecture9
+      MyList
+      MySet
+      Utils
+  other-modules:
+      Paths_Solve_hs
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints
+  build-depends:
+      aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+executable shs-test
+  main-is: SolveHsTest.hs
+  other-modules:
+      Paths_Solve_hs
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , process
+    , random
+    , scientific
+    , split
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l1
+  type: exitcode-stdio-1.0
+  main-is: M1L1.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l10
+  type: exitcode-stdio-1.0
+  main-is: M1L10.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l11
+  type: exitcode-stdio-1.0
+  main-is: M1L11.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l2
+  type: exitcode-stdio-1.0
+  main-is: M1L2.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l3
+  type: exitcode-stdio-1.0
+  main-is: M1L3.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l4
+  type: exitcode-stdio-1.0
+  main-is: M1L4.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l5
+  type: exitcode-stdio-1.0
+  main-is: M1L5.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l6
+  type: exitcode-stdio-1.0
+  main-is: M1L6.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l7
+  type: exitcode-stdio-1.0
+  main-is: M1L7.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l8
+  type: exitcode-stdio-1.0
+  main-is: M1L8.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m1l9
+  type: exitcode-stdio-1.0
+  main-is: M1L9.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m2l1
+  type: exitcode-stdio-1.0
+  main-is: M2L1.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m2l10
+  type: exitcode-stdio-1.0
+  main-is: M2L10.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m2l2
+  type: exitcode-stdio-1.0
+  main-is: M2L2.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , random-shuffle
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m2l3
+  type: exitcode-stdio-1.0
+  main-is: M2L3.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m2l4
+  type: exitcode-stdio-1.0
+  main-is: M2L4.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m2l5
+  type: exitcode-stdio-1.0
+  main-is: M2L5.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m2l6
+  type: exitcode-stdio-1.0
+  main-is: M2L6.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , random-shuffle
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m2l7
+  type: exitcode-stdio-1.0
+  main-is: M2L7.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , random-shuffle
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m2l8
+  type: exitcode-stdio-1.0
+  main-is: M2L8.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+test-suite m2l9
+  type: exitcode-stdio-1.0
+  main-is: M2L9.hs
+  other-modules:
+      TestUtils
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , tasty
+    , tasty-hunit
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+benchmark m2l10b
+  type: exitcode-stdio-1.0
+  main-is: M2L10b.hs
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+benchmark m2l2b
+  type: exitcode-stdio-1.0
+  main-is: M2L2b.hs
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+benchmark m2l6b
+  type: exitcode-stdio-1.0
+  main-is: M2L6b.hs
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+benchmark m2l8b
+  type: exitcode-stdio-1.0
+  main-is: M2L8b.hs
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010
+
+benchmark m3l4b
+  type: exitcode-stdio-1.0
+  main-is: M3L4b.hs
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -Wno-type-defaults -Wno-missing-export-lists -Wno-unused-imports -Wno-unused-matches -Wno-redundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Solve-hs
+    , aeson
+    , array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , criterion
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , filepath
+    , hashable
+    , heap
+    , monad-logger
+    , mtl
+    , multimap
+    , random
+    , scientific
+    , split
+    , text
+    , transformers
+    , unordered-containers
+    , vector
+  default-language: Haskell2010

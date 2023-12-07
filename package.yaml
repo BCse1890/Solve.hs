@@ -1,0 +1,422 @@
+name:                Solve-hs
+version:             0.1.0.0
+github:              "githubuser/Solve-hs"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2023 Author name here"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/Solve-hs#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- array
+- bytestring
+- containers
+- cryptohash-md5
+- directory
+- filepath
+- exceptions
+- hashable
+- monad-logger
+- mtl
+- multimap
+- heap
+- random
+- scientific
+- split
+- text
+- transformers
+- unordered-containers
+- vector
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+- -Wno-type-defaults
+- -Wno-missing-export-lists
+- -Wno-unused-imports
+- -Wno-unused-matches
+- -Wno-redundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  shs-test:
+    main:                SolveHsTest.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - process
+
+benchmarks:
+  m2l2b:
+    main:                M2L2b.hs
+    source-dirs:         bench
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - criterion
+    - random
+    other-modules: []
+  m2l6b:
+    main:                M2L6b.hs
+    source-dirs:         bench
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - criterion
+    - random
+    - unordered-containers
+    other-modules: []
+  m2l8b:
+    main:                M2L8b.hs
+    source-dirs:         bench
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - criterion
+    - random
+    - unordered-containers
+    other-modules: []
+  m2l10b:
+    main:                M2L10b.hs
+    source-dirs:         bench
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - criterion
+    - monad-logger
+    - random
+    - unordered-containers
+    other-modules: []
+  m3l4b:
+    main:                M3L4b.hs
+    source-dirs:         bench
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - criterion
+    - random
+    - unordered-containers
+    other-modules: []
+
+tests:
+  m1l1:
+    main:                M1L1.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m1l2:
+    main:                M1L2.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m1l3:
+    main:                M1L3.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m1l4:
+    main:                M1L4.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m1l5:
+    main:                M1L5.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m1l6:
+    main:                M1L6.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m1l7:
+    main:                M1L7.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m1l8:
+    main:                M1L8.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m1l9:
+    main:                M1L9.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m1l10:
+    main:                M1L10.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m1l11:
+    main:                M1L11.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m2l1:
+    main:                M2L1.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m2l2:
+    main:                M2L2.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - random-shuffle
+    - random
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m2l3:
+    main:                M2L3.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m2l4:
+    main:                M2L4.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m2l5:
+    main:                M2L5.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m2l6:
+    main:                M2L6.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    - random
+    - random-shuffle
+    other-modules:
+    - TestUtils
+  m2l7:
+    main:                M2L7.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    - random
+    - random-shuffle
+    other-modules:
+    - TestUtils
+  m2l8:
+    main:                M2L8.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m2l9:
+    main:                M2L9.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
+  m2l10:
+    main:                M2L10.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Solve-hs
+    - tasty
+    - tasty-hunit
+    other-modules:
+    - TestUtils
