@@ -33,7 +33,6 @@ elevationRedux  = flight (0,0)
 
 fireworks :: (Int, Int) -> Int -> Int -> [Int] -> [Int] -> Int
 fireworks (h1, h2) n1 n2 f1s f2s =  
-  
   let
     fireWorksTail_n1 :: [Int] ->Int -> Int 
     fireWorksTail_n1 [] acc_n1 = acc_n1

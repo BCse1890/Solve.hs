@@ -203,38 +203,78 @@ elemIndTail index d (Cons p ps)
 -- Module 1 Lecture 5
 -- List Accumulation
 reverse' :: MyList a -> MyList a
-reverse' = undefined
+reverse' = reverse'T Nil
+  where
+    reverse'T :: MyList a -> MyList a -> MyList a
+    reverse'T acc Nil = acc
+    reverse'T acc (Cons x xs) = reverse'T (Cons x acc) xs
 
 append' :: MyList a -> MyList a -> MyList a
-append' = undefined
+append' xs = append'T (reverse' xs) 
+  where
+    append'T :: MyList a -> MyList a -> MyList a
+    append'T Nil qs = qs
+    append'T (Cons p ps) qs = append'T ps (Cons p qs) 
 
 findIndices' :: (a -> Bool) -> MyList a -> MyList Int
-findIndices' = undefined
+findIndices' f = fITail' 0 Nil
+  where
+    fITail' _ acc Nil = reverse' acc
+    fITail' n acc (Cons s sx) = if (f s) 
+      then fITail' (n+1) (Cons n acc) sx 
+      else fITail' (n+1) acc sx
 
 isSuffixOf' :: (Eq a) => MyList a -> MyList a -> Bool
-isSuffixOf' = undefined
+isSuffixOf' first second = isSo'T (reverse' first) (reverse' second)
+  where
+    isSo'T Nil _ = True
+    isSo'T (Cons a ax) (Cons p ps) = if (a == p) then isSo'T ax ps else False
 
 map' :: (a -> b) -> MyList a -> MyList b
-map' = undefined
+map' f = map'T Nil 
+  where
+    map'T acc Nil = reverse' acc
+    map'T acc (Cons x xs) = map'T (Cons (f x) acc) xs
 
 filter' :: (a -> Bool) -> MyList a -> MyList a
-filter' = undefined
+filter' f = filter'T Nil
+  where 
+    filter'T acc Nil = reverse' acc
+    filter'T acc (Cons p ps) = if (f p)
+      then filter'T (Cons p acc) ps
+      else filter'T acc ps
 
 snoc' :: MyList a -> a -> MyList a
-snoc' = undefined
+snoc' first  = snoc'T (reverse' first)
+  where
+    snoc'T ps p = reverse' (Cons p ps)
+    
 
 init' :: MyList a -> MyList a
-init' = undefined
+init' Nil = error "No input provided."
+init' input = init'T (reverse' input)
+  where
+    init'T (Cons _ ps) = reverse' ps
+
 
 concat' :: MyList (MyList a) -> MyList a
-concat' = undefined
+concat' listOfLists = concat'T Nil (reverse' listOfLists) 
+  where
+    concat'T acc Nil = acc
+    concat'T acc (Cons firstL otherL) = concat'T (append' firstL acc) otherL
+
 
 -- E.g. concatMap' (\a -> [a + 1, a + 2, a + 3]) [1, 5] = [2, 3, 4, 6, 7, 9]
 concatMap' :: (a -> MyList b) -> MyList a -> MyList b
-concatMap' = undefined
+concatMap' f xs  = concat' $ map' f xs
+
 
 zip' :: MyList a -> MyList b -> MyList (a, b)
-zip' = undefined
+zip' m1 m2 =zip'T Nil m1 m2
+  where
+    zip'T acc Nil _ = reverse' acc
+    zip'T acc _ Nil = reverse' acc
+    zip'T acc (Cons x xs) (Cons y ys) = zip'T (Cons (x,y) acc) xs ys
 
 -- Module 1 Lecture 6
 -- Folding
