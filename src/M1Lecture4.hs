@@ -56,11 +56,24 @@ math2d = rowScan 0
     rowScan acc [] = acc
     rowScan acc (thisrow: rest) = rowScan (insideScan acc False thisrow) rest
 
-    -- calculate Score across the row
+    -- calculate Score across the row 
     insideScan :: Int -> Bool -> [Int] -> Int
     insideScan acc _ [] = acc
-    insideScan acc True (y:ys) = insideScan (acc * y) False ys
+    insideScan acc True (y:ys) = insideScan (acc * y) False ys  -- True indicates odd column
     insideScan acc False (y: ys) = insideScan (acc + y) True ys
+
+{- math2d :: [[Int]] -> Int
+math2d = rowScan 0
+  where
+    rowScan :: Int -> [[Int]] -> Int
+    rowScan acc [] = acc
+    rowScan acc (x:xs) = rowScan (acrossRow (acc, True) x) xs
+    
+    acrossRow :: (Int, Bool) -> [Int] -> Int
+    acrossRow (acc, _) [] = acc
+    acrossRow (acc, evenCol) (c:cs) = 
+      if evenCol then acrossRow (acc+c, False) cs else acrossRow (acc*c, True) cs -}
+    
 
 
 tripletSums :: [Int] -> Int

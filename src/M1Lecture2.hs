@@ -7,7 +7,6 @@ import Data.ByteString.Char8 (pack)
 import qualified Data.List as L
 import Data.Word (Word8, Word)
 import Data.Maybe(fromJust)
-import Data.List as DL
 
 
 parallelCars :: (Word, Word) -> (Word, Word) -> Bool
@@ -37,7 +36,7 @@ areAllFactors factors numbers = all (\ j -> agg `mod` (numbers !! j) == 0) facto
   where agg = sum (numbers)
 
 hasIncrementingList :: [Int] -> [Int] -> Bool
-hasIncrementingList starts numbers = any (\ j -> DL.isInfixOf [j, j+1, j+2] numbers) starts
+hasIncrementingList starts numbers = any (\ j -> L.isInfixOf [j, j+1, j+2] numbers) starts
 
 hasIncrementingList' :: [Int] -> [Int] -> Bool
 hasIncrementingList' starts (s: numbers') = case check_Increment (s:numbers') of

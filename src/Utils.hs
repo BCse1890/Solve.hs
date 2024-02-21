@@ -170,7 +170,7 @@ graphNeighbors graph n1 = map fst (graphNeighborCosts graph n1)
 graphCost :: (Hashable node) => Graph node cost -> node -> node -> Maybe cost
 graphCost graph n1 n2 = snd <$> L.find ((==) n2 . fst) assocs
   where
-    assocs = graphNeighborCosts graph n1
+    assocs = graphNeighborCosts graph n1 
 
 -- Huffman Tree
 data HuffmanTree =

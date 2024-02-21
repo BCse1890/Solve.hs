@@ -175,6 +175,7 @@ maximum'' (Cons p ps) = all''Max p ps
   where
     all''Max :: (Ord a) => a -> MyList a -> a
     all''Max newMax Nil = newMax
+    -- all'Max newMax (Cons x Nil) = if x >= newMax then x else newMax
     all''Max newMax (Cons x xs) 
       | x > newMax = all''Max x xs
       | x <= newMax  = all''Max newMax xs
@@ -279,39 +280,78 @@ zip' m1 m2 =zip'T Nil m1 m2
 -- Module 1 Lecture 6
 -- Folding
 foldl'' :: (b -> a -> b) -> b -> MyList a -> b
-foldl'' = undefined
+foldl'' f s = fold''T s 
+  where
+    fold''T acc Nil = acc
+    fold''T acc (Cons x xs) = fold''T (f acc x) xs
 
 foldr' :: (a -> b -> b) -> b -> MyList a -> b
-foldr' = undefined
+foldr' f s input = foldr'T s (reverse' input)
+  where
+    foldr'T acc Nil = acc
+    foldr'T acc (Cons r rs) = foldr'T (f r acc) rs
 
 scanl' :: (b -> a -> b) -> b -> MyList a -> MyList b
-scanl' = undefined
-
+scanl' f i inList = scanl'T (Cons i Nil) i inList
+  where
+    scanl'T acc _ Nil = reverse' acc
+    scanl'T acc n (Cons x xs) = scanl'T (Cons (f n x) acc) (f n x) xs
+    
 sum''' :: MyList Int -> Int
-sum''' = undefined
+sum''' = foldr' (+) 0
 
 map'' :: (a -> b) -> MyList a -> MyList b
-map'' = undefined
+map'' f xs = reverse' $ foldl'' fn Nil xs
+  where fn acc p = Cons (f p) acc
+  
 
 -- Module 1 Lecture 7
 -- Sorting, Grouping and HOF Patterns
 maximumBy' :: (a -> a -> Ordering) -> MyList a -> a
-maximumBy' = undefined
+maximumBy' _ Nil = error "Input is an empty list"
+maximumBy' f (Cons h rest) = foldl'' maxByTail' h rest
+  where maxByTail' acc x = if f acc x  == LT then x else acc
 
-sortBy' :: (a -> a -> Ordering) -> MyList a -> MyList a
-sortBy' = undefined
-
+sortBy' :: (a -> a-> Ordering) -> MyList a -> MyList a
+sortBy' _ Nil = Nil
+sortBy' _ (Cons x Nil) = Cons x Nil
+sortBy' f (Cons x rest) = append' (sortBy' f left) (Cons x (sortBy' f  right))
+  where 
+    left = filter'  (\ l -> f l x == LT) rest
+    right = filter' (\ r -> f x r /= GT ) rest
+   
 sort' :: (Ord a) => MyList a -> MyList a
-sort' = undefined
+sort' Nil = Nil
+sort' (Cons x Nil) = Cons x Nil
+sort' xs = quickSort' xs
+
 
 sortOn' :: (Ord b) => (a -> b) -> MyList a -> MyList a
-sortOn' = undefined
+sortOn' f  = sortBy' (\ a b -> compare (f a) (f b))
 
 groupBy' :: (a -> a -> Bool) -> MyList a -> MyList (MyList a)
-groupBy' = undefined
+groupBy' _ Nil = Nil
+groupBy' f (Cons i rest) = groupTail (Cons i Nil) Nil rest
+  where
+    groupTail Nil _ _ = error "No input provided."
+    groupTail sublist acc Nil = reverse' (Cons (reverse' sublist) acc)
+    groupTail sublist@(Cons x _) acc (Cons y rest') = 
+      if f x y 
+        then groupTail (Cons y sublist) acc rest' 
+        else groupTail (Cons y Nil) (Cons (reverse' sublist) acc) rest'
+
+
 
 group' :: (Eq a) => MyList a -> MyList (MyList a)
-group' = undefined
+group' = groupBy' (\ a b -> a == b)
+
+quickSort' :: (Ord a) => MyList a -> MyList a
+quickSort' Nil = Nil
+quickSort' (Cons d Nil) = Cons d Nil
+quickSort' (Cons x xs) = append' left (Cons x right)
+  where
+    left = quickSort' $ filter' (<=  x ) xs
+    right = quickSort' $ filter' (> x) xs
 
 -- Module 1 Lecture 8
 -- Set Functions
