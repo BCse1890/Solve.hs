@@ -129,11 +129,9 @@ Mixing Monads
 {- 
 Use foldM to iterate over rows using f_vert. Need to add an index for rowNo, using this
  as acc. Use LogDebugN to log values, returning the rowNo. Discard this in final result 
- by return (). Iterate over colums for each row using f_horiz. Keep ongoing acc value
- from original programme in State, checking for whether even or odd row and modifying 
- State by +y or *y. Return the Bool for evenCol as the acc in the original foldl.
-
-
+ by return (). Iterate over columns for each row using f_horiz. Keep ongoing acc value
+ from original programme in State, checking for whether row is even or odd and modifying 
+ State by (+y) or (*y). Return the Bool for evenCol as the acc in the original foldl.
 -}
 
 math2d :: (MonadFail m, MonadLogger m, MonadState Int m) => [[Int]] -> m ()
