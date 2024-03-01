@@ -136,7 +136,7 @@ newtype Graph node cost = Graph
   deriving (Show, Eq)
 
 type SimpleGraph = Graph String Int
-
+{- 
 mkDirectedGraph :: (Hashable node) => [(node, node, cost)] -> Graph node cost
 mkDirectedGraph edges = Graph $ foldr f HM.empty edges
   where
@@ -171,6 +171,7 @@ graphCost :: (Hashable node) => Graph node cost -> node -> node -> Maybe cost
 graphCost graph n1 n2 = snd <$> L.find ((==) n2 . fst) assocs
   where
     assocs = graphNeighborCosts graph n1 
+-}
 
 -- Huffman Tree
 data HuffmanTree =
@@ -180,7 +181,7 @@ data HuffmanTree =
 
 huffmanVal :: HuffmanTree -> Int
 huffmanVal (HLeaf _ v) = v
-huffmanVal (HInternal _ _ v) = v
+huffmanVal (HInternal _ _ v) = v 
 
 instance Eq HuffmanTree where
   (HLeaf c1 v1) == (HLeaf c2 v2) = c1 == c2 && v1 == v2

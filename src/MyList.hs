@@ -171,6 +171,7 @@ all'' = all''Tail True
     all''Tail acc f (Cons x xs) = all''Tail (f x && acc) f xs
 
 maximum'' :: (Ord a) => MyList a -> a
+maximum'' Nil = error "No maximum for an empty list!"
 maximum'' (Cons p ps) = all''Max p ps
   where
     all''Max :: (Ord a) => a -> MyList a -> a
@@ -182,6 +183,7 @@ maximum'' (Cons p ps) = all''Max p ps
 
 
 minimum'' :: (Ord a) => MyList a -> a
+minimum'' Nil = error "No maximum for an empty list!"
 minimum'' (Cons p ps) = all''Min p ps
   where
     all''Min :: (Ord a) => a -> MyList a -> a
@@ -253,9 +255,10 @@ snoc' first  = snoc'T (reverse' first)
 
 init' :: MyList a -> MyList a
 init' Nil = error "No input provided."
-init' input = init'T (reverse' input)
+init' (Cons i is) = init'T (Cons i Nil) is 
   where
-    init'T (Cons _ ps) = reverse' ps
+    init'T acc Nil = reverse' (tail' acc)
+    init'T acc (Cons p ps) = init'T (Cons p acc) ps
 
 
 concat' :: MyList (MyList a) -> MyList a
@@ -329,6 +332,7 @@ sort' xs = quickSort' xs
 sortOn' :: (Ord b) => (a -> b) -> MyList a -> MyList a
 sortOn' f  = sortBy' (\ a b -> compare (f a) (f b))
 
+
 groupBy' :: (a -> a -> Bool) -> MyList a -> MyList (MyList a)
 groupBy' _ Nil = Nil
 groupBy' f (Cons i rest) = groupTail (Cons i Nil) Nil rest
@@ -353,27 +357,75 @@ quickSort' (Cons x xs) = append' left (Cons x right)
     left = quickSort' $ filter' (<=  x ) xs
     right = quickSort' $ filter' (> x) xs
 
+
 -- Module 1 Lecture 8
 -- Set Functions
 nub' :: (Eq a) => MyList a -> MyList a
-nub' = undefined
+nub'  = nubTail' Nil 
+  where
+    nubTail' acc Nil = reverse' acc
+    nubTail' acc (Cons x xs) = case x `elem'` acc of
+      True -> nubTail' acc xs
+      False -> nubTail' (Cons x acc) xs
+
 
 delete' :: (Eq a) => a -> MyList a -> MyList a
-delete' = undefined
+delete' a  = delTail' Nil True
+  where
+    delTail' acc _ Nil = reverse' acc
+    delTail' acc firstOcc (Cons x xs ) = case (firstOcc, x == a) of
+      (True, True)  -> delTail' acc False xs
+      (True, False) -> delTail' (Cons x acc) True xs
+      _ -> delTail' (Cons x acc) False xs
 
+      
 intersect' :: (Eq a) => MyList a -> MyList a -> MyList a
-intersect' = undefined
+intersect' as bs = filter' (`elem'` bs) as
+
+{- intersect' :: (Eq a) => MyList a -> MyList a -> MyList a
+intersect'  = intersT' Nil
+  where
+    intersT' acc Nil _ = reverse' acc
+    intersT' acc _ Nil = reverse' acc
+    intersT' acc (Cons a as) bs = case a `elem'` bs of
+      True -> intersT' (Cons a acc) as bs
+      False -> intersT' acc as bs -}
+
 
 union' :: (Eq a) => MyList a -> MyList a -> MyList a
-union' = undefined
+union' xs ys = unionT' (reverse' xs) ys
+  where
+    unionT' acc Nil = reverse' acc 
+    unionT' acc (Cons a as)  = case (a `elem'` acc) of
+      False -> unionT' (Cons a acc) as
+      True -> unionT' acc as
+  
+
 
 -- Module 1 Lecture 9
 -- Monadic Functions
 mapM' :: (Monad m) => (a -> m b) -> MyList a -> m (MyList b)
-mapM' = undefined
+mapM' f  =  mapMT' f Nil
+  where
+    mapMT' _ acc Nil = return (reverse' acc)
+    mapMT' f' acc (Cons a xs) = do
+      applyM <- f' a
+      mapMT' f' (Cons applyM acc) xs
+
 
 foldM' :: (Monad m) => (b -> a -> m b) -> b -> MyList a -> m b
-foldM' = undefined
+foldM' f v = foldMT' f v  
+  where
+    foldMT' _ acc Nil = return acc
+    foldMT' f' acc (Cons a xs) = do
+      applyF <- f' acc a
+      foldMT' f' applyF xs
+
 
 sequence' :: (Monad m) => MyList (m a) -> m (MyList a)
-sequence' = undefined
+sequence' = seqT Nil 
+  where
+    seqT acc Nil = return (reverse' acc)
+    seqT acc (Cons f' fx) = do
+      applyS <- f'         -- input list of (m a) so head f' applies monad to value 
+      seqT (Cons applyS acc) fx
